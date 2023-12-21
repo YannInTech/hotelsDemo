@@ -1,0 +1,14 @@
+name: hotelsAzure
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - jupyter
+  - pip
+  - pip:
+    - notebook
+    - azure-search-documents
+    - openai
+    - python-dotenv
+    - azure-storage-blob
