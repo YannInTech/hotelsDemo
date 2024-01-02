@@ -2,19 +2,14 @@
 
 ## Description
 
-The present Jupyter notebook contains the source code for uploading to an Azure storage service container a .json data file.  
-This file is indexed by creating documents for every line entry in its content before being queried via keyword, filtered, sorted and faceted searches.  
+![schema](skill-archi.png)
 
-The commands to create, load and query documents are using the azure-search-documents and azure-storage-blob Python SDKs  
+The present notebook contains python code leveragin the Azure Python SDK to host, enrich and expose to a search client an example database of Hotels presenting various characteristics. It leverages Azure blob containers for ingesting a source .json file in a first step. Next, Enrichment uses an indexer composer with a datasource, index and skillset to populate the custom index with augmented content. Search agents can be instantiated to search the index once it is deployed.
+The given code deploys and configures all required ressources via the Azure Python SDK.
 
-Note: a .env file (no filename, only the extension) is required and must be located in the same folder as this notebook to refer the authentificaiton keys and service endpoints.
-An empty example file to be populated is provided.
+## Requirements
 
-Separate functions to upload a source .json file to a storage service container, to create a dataSource, Index and Skillset to be passed to an Indexer are declared.  
-Although the currently valid solution directly uses the local .json to populate the index created via the create_index function as the Pyhton SDK has at this time a known issue with using indexers via the Python SDK. When using azure-search-documents to create an Indexer, advanced properties could not be set for an indexer with a data connection of Azure Blob or Azure SQL Server. (https://github.com/Azure/azure-sdk-for-python/pull/33357)  
+Please create a virtual environment with the provided environmt.yml and populate a .env with required Azure microservices keys. You may edit and rename the .txt provided.
 
-The advanced properties such as a configured skillset can enable AI enrichment and set up features such as multi language querying and translation.  
-Another path is to use OpenAI service via vector dense embeddings queries which do not require AI enrichment and can leverage OpenAI models for multi language querying via token embeddings. Future development, OpenAI licensing permitting will use this approch.  
-
-Several example queries are presented against the populated index via simple keyword search in the English language via the fields decalred as searchable in th eindex construction.  
-The examples make use of the built configuration of the index in order to sort, filter and return an multi faceted presentation of search results.  
+azure-search-documents >= 11.4.0
+azure-storage-blob >= 12.19.0
