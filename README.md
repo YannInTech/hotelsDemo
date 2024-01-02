@@ -1,4 +1,4 @@
-### Hotels sample Search application for Azure AI with search.documents and storage.blob Azure Python SDKs
+### Hotels sample Azure AI search application with the Azure Python SDK
 
 ## Description
 
