@@ -9,7 +9,7 @@ The notebook deploys and configures all required resources via the Azure Python 
 
 ## Requirements
 
-Please create a virtual environment with the provided environmt.yml and populate a .env with required Azure microservices keys.
+Please create a virtual environment with the provided environment.yml and populate an .env file with required Azure microservices keys. You may use the .txt file provided and rename.  
 
 azure-search-documents >= 11.4.0  
 azure-storage-blob >= 12.19.0  
